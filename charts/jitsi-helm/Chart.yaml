@@ -14,7 +14,7 @@ type: application
 
 # This is the chart version. This version number should be incremented each time you make changes
 # to the chart and its templates, including the app version.
-version: 0.2.0
+version: 1.0.0
 
 # This is the version number of the application being deployed. This version number should be
 # incremented each time you make changes to the application.
@@ -24,15 +24,6 @@ dependencies:
   - name: prosody
     condition: prosody.enabled
     version: 0.2.0
-
-annotations:
-  clouds: aws,google,digitalocean,azure
-  ingress: true
-  required_fields: sd_value_hostname
-  sd_value_jvb_service_type: jvb.service.type
-  sd_value_hostname: web.ingress.hostname
-  sd_repo_index: 1.0
-  sd_port_4443_hidden: "true"
 
 icon: https://storage.googleapis.com/deployment-images/servicedeployed/jitsi-512x512.png
 keywords:
