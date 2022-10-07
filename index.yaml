@@ -1,5 +1,38 @@
 apiVersion: v1
 entries:
+  deepstream-analytics:
+  - apiVersion: v1
+    appVersion: "1.2"
+    created: "2022-10-07T21:12:27.520727804Z"
+    description: A Helm chart for Deepstream Intelligent Video Analytics
+    digest: 57ad489c8b7af6a0d5f2549f6b670f78b495fe2367fd7324fea5676e2e124664
+    icon: https://storage.googleapis.com/deployment-images/servicedeployed/container_logos/nvidia/nvidia_deepstream_logo.png
+    name: deepstream-analytics
+    urls:
+    - https://github.com/servicedeployed/helm-demo/releases/download/deepstream-analytics-1.0.0/deepstream-analytics-1.0.0.tgz
+    version: 1.0.0
+  jitsi-meet:
+  - apiVersion: v2
+    appVersion: stable-5963
+    created: "2022-10-07T21:12:27.648781104Z"
+    dependencies:
+    - condition: prosody.enabled
+      name: prosody
+      repository: ""
+      version: 0.2.0
+    description: A Helm chart for Kubernetes
+    digest: c0c3a4b394f41da6d3e644ae9ea22a6b6a75be0e17c81283c29326969f93a754
+    icon: https://storage.googleapis.com/deployment-images/servicedeployed/jitsi-512x512.png
+    keywords:
+    - video
+    - streaming
+    name: jitsi-meet
+    sources:
+    - https://jitsi.org/
+    type: application
+    urls:
+    - https://github.com/servicedeployed/helm-demo/releases/download/jitsi-meet-1.0.0/jitsi-meet-1.0.0.tgz
+    version: 1.0.0
   speedtest:
   - apiVersion: v2
     appVersion: "1.0"
