@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: "{{ include "deepstream-analytics.fullname" . }}-test-connection"
+  labels:
+{{ include "deepstream-analytics.labels" . | indent 4 }}
+  annotations:
+    "helm.sh/hook": test-success
+spec:
+  containers:
+    - name: wget
+      image: busybox
+      command: ['wget']
+      args:  ['{{ include "deepstream-analytics.fullname" . }}:{{ .Values.service.port }}']
+  restartPolicy: Never

@@ -1,0 +1,34 @@
+{{- if (eq .Values.jvb.service.type "LoadBalancer") }}
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  name: service-reader
+  namespace: {{ .Release.Namespace }}
+rules:
+- apiGroups: [""] # "" indicates the core API group
+  resources: ["services"]
+  verbs: ["get", "watch", "list", "patch"]
+- apiGroups: [""] # "" indicates the core API group
+  resources: ["configmaps"]
+  verbs: ["get", "watch", "list","patch"]
+---
+
+apiVersion: rbac.authorization.k8s.io/v1
+# This role binding allows "jane" to read pods in the "default" namespace.
+# You need to already have a Role named "pod-reader" in that namespace.
+kind: RoleBinding
+metadata:
+  name: read-services
+  namespace: {{ .Release.Namespace }}
+subjects:
+# You can specify more than one "subject"
+- kind: ServiceAccount
+  name: {{ include "jitsi-meet.serviceAccountName" . }}
+  namespace: {{ .Release.Namespace }}
+  apiGroup: 
+roleRef:
+  # "roleRef" specifies the binding to a Role / ClusterRole
+  kind: Role #this must be Role or ClusterRole
+  name: service-reader # this must match the name of the Role or ClusterRole you wish to bind to
+  apiGroup: ""
+{{- end }}
