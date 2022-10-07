@@ -1,0 +1,15 @@
+apiVersion: v1
+entries:
+  speedtest:
+  - apiVersion: v2
+    appVersion: "1.0"
+    created: "2022-10-07T21:10:39.314848859Z"
+    description: A lightweight Speedtest implemented in Javascript, using XMLHttpRequest and Web Workers.
+    digest: b2cc72714f12fb67b48df42a1099f9ea8ebc117f1c4aeae2062e376e6c78c459
+    icon: https://storage.googleapis.com/deployment-images/servicedeployed/container_logos/librespeed-logo.png
+    name: speedtest
+    type: application
+    urls:
+    - https://github.com/servicedeployed/helm-demo/releases/download/speedtest-1.0.0/speedtest-1.0.0.tgz
+    version: 1.0.0
+generated: "2022-10-07T21:10:39.138789408Z"
